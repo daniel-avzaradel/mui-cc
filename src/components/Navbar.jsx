@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Badge, Box, InputBase, styled, Toolbar, Typography, Avatar } from '@mui/material';
+import { AppBar, Badge, Box, InputBase, styled, Toolbar, Typography, Avatar, Menu, MenuItem } from '@mui/material';
 import PianoIcon from '@mui/icons-material/Piano';
 import EmailIcon from '@mui/icons-material/Email';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -35,6 +35,18 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 
 const Navbar = () => {
+  const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpen(false);
+  };
+
   return (
     <AppBar position='sticky'>
       <StyledToolbar>
@@ -52,13 +64,32 @@ const Navbar = () => {
           <Badge badgeContent={10} color='error' sx={{ m: 2 }}>
             <NotificationsIcon />
           </Badge>
-          <Avatar sx={{ width: 30, height: 30 }} />
+          <Avatar sx={{ width: 30, height: 30 }} onClick={handleClick} />
         </Icons>
-        <UserBox>
+        <UserBox onClick={handleClick}>
           <Avatar sx={{ width: 30, height: 30 }} />
           <Typography variant='span'>Daniel</Typography>
         </UserBox>
       </StyledToolbar>
+      <Menu
+        id='demo-positioned-menu'
+        aria-labelledby='demo-positioned-button'
+        open={open}
+        anchorEl={anchorEl}
+        onClose={(e) => setOpen(false)}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 };
