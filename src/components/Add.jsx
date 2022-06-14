@@ -23,7 +23,11 @@ const Add = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <>
-      <Tooltip title='Add' sx={{ bottom: 20, left: { xs: 'calc(50% - 25px)', md: '20px' } }} onClick={(e) => setOpen(true)}>
+      <Tooltip
+        title='Add'
+        sx={{ position: 'fixed', bottom: 20, left: { xs: 'calc(50% - 25px)', md: '20px' } }}
+        onClick={(e) => setOpen(true)}
+      >
         <Fab color='primary' aria-label='add'>
           <AddIcon />
         </Fab>
