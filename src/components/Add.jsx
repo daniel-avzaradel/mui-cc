@@ -34,7 +34,7 @@ const Add = () => {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
       >
-        <Box bgcolor='white' borderRadius={5} p={3}>
+        <Box bgcolor={'background.default'} color='text.primary' borderRadius={5} p={3}>
           <Typography variant='h6' color='gray' textAlign='center'>
             Create Post
           </Typography>
@@ -44,7 +44,7 @@ const Add = () => {
             <Typography variant='span'>Daniel Avzaradel</Typography>
           </UserBox>
           <TextField
-            sx={{ width: '100%', bgcolor: '#f2f2f2' }}
+            sx={{ width: '100%' }}
             id='standard-multiline-static'
             multiline
             rows={4}

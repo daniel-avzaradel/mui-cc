@@ -10,7 +10,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Switch } from '@mui/material';
 
-const SidebarList = () => {
+const SidebarList = ({ setMode, mode }) => {
   return (
     <List>
       <ListItem disablePadding>
@@ -81,7 +81,7 @@ const SidebarList = () => {
           <ListItemIcon>
             <DarkModeIcon />
           </ListItemIcon>
-          <Switch />
+          <Switch onChange={(e) => setMode(mode === 'light' ? 'dark' : 'light')} />
         </ListItemButton>
       </ListItem>
     </List>
